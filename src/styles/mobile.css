@@ -1,0 +1,110 @@
+/* Mobile-first responsive design utilities */
+
+@media (max-width: 640px) {
+  /* Game boards - smaller on mobile */
+  .game-board {
+    @apply scale-75 transform-gpu;
+  }
+
+  /* Touch-friendly buttons */
+  .touch-button {
+    @apply min-h-12 min-w-12;
+  }
+
+  /* Card layouts for mobile */
+  .mobile-card-grid {
+    @apply grid-cols-1 gap-3;
+  }
+
+  /* Hide desktop-only elements */
+  .desktop-only {
+    @apply hidden;
+  }
+
+  /* Show mobile-only elements */
+  .mobile-only {
+    @apply block;
+  }
+}
+
+@media (min-width: 641px) {
+  /* Desktop styles */
+  .mobile-only {
+    @apply hidden;
+  }
+
+  .desktop-only {
+    @apply block;
+  }
+}
+
+/* Touch interactions */
+.touch-feedback {
+  @apply transition-transform active:scale-95;
+}
+
+/* Mobile navigation improvements */
+.mobile-nav {
+  @apply fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50;
+  @apply safe-area-inset-bottom;
+}
+
+/* Game-specific mobile optimizations */
+@media (max-width: 768px) {
+  /* Chess board */
+  .chess-board {
+    @apply max-w-sm mx-auto;
+  }
+
+  /* UNO cards */
+  .uno-cards {
+    @apply flex-wrap justify-center gap-2;
+  }
+
+  .uno-card {
+    @apply w-12 h-16 text-xs;
+  }
+
+  /* Bingo grid */
+  .bingo-grid {
+    @apply grid-cols-5 gap-1;
+  }
+
+  .bingo-cell {
+    @apply w-10 h-10 text-xs;
+  }
+
+  /* Drawing canvas */
+  .drawing-canvas {
+    @apply max-h-64;
+  }
+}
+
+/* Safe area for mobile devices */
+@supports (padding: max(0px)) {
+  .safe-area-inset-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .safe-area-inset-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+}
+
+/* Touch scrolling improvements */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Mobile-friendly modals */
+.mobile-modal {
+  @apply max-h-screen overflow-y-auto;
+  @apply safe-area-inset-top safe-area-inset-bottom;
+}
+
+/* Gesture-friendly elements */
+.gesture-target {
+  @apply min-h-44 min-w-44;
+  touch-action: manipulation;
+}
